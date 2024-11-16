@@ -1,10 +1,13 @@
 N = int(input())
+numbers =list(range(1,N+1))
+numbers1 = []
 
-def game(N):
-    numbers = list(range(1, N+1))
-    numbers1 = ['-' * (str(num).count('3')+str(num).count('6')+str(num).count('9'))
-               if '3' in str(num) or '6' in str(num) or '9' in str(num) else num for num in numbers]
-    
-    print(*numbers1, sep=' ') 
+for num in numbers:
+    num_str  = str(num)
+    if '3' in num_str or '6' in num_str or '9' in num_str :
+        app = num_str.count('3') + num_str.count('6')+ num_str.count('9')
+        numbers1.append('-'*app)
+    else:
+        numbers1.append(num)
 
-game(N)
+print(*numbers1)
